@@ -45,6 +45,10 @@ app.use((err, req, res, next) => {
 });
 
 const port = process.env.PORT || 3000;
-app.listen(port, () => {
-  console.log(`Your server, listening on ${port}`)
-})
+
+db.sync()
+  .then(function(){
+    app.listen(port, function () {
+      console.log(`Your server, listening on port ${port}`);
+    })
+  })
