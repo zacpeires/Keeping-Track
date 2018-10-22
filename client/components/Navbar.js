@@ -1,6 +1,8 @@
 import React, { Component } from 'react'
+import { connect } from 'react-router-dom'
+import { logout } from '../store'
 
-export default class Navbar extends Component {
+  class Navbar extends Component {
   constructor() {
     super()
   }
@@ -9,8 +11,21 @@ export default class Navbar extends Component {
 
     return (
       <div>
-
+        { this.props.isLoggedIn ? <div>
+        </div> : <div></div>
+        }
       </div>
     )
   }
 }
+
+const mapStateToProps = state => ({
+  isLoggedIn: !!state.user.id,
+  user: state.user
+})
+
+const mapDispatchToProps = dispatch => ({
+  logout: () => dispatch(logout())
+})
+
+export default connect(mapStateToProps, mapDispatchToProps)(Navbar)

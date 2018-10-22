@@ -1,5 +1,5 @@
 import axios from 'axios'
-// import history from '../history'
+import history from '../history'
 
 const defaultUser = {}
 
@@ -33,7 +33,7 @@ export const login = userData => {
   return async dispatch => {
     const { data } = axios.put('/api/users/login', userData)
     dispatch(getUser(data))
-    // history.push('/')
+    history.push('/')
   }
 }
 
