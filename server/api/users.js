@@ -1,5 +1,5 @@
 const router = require('express').Router()
-const { User } = require('../db/models')
+const { User, Calendar } = require('../db/models')
 module.exports = router
 
 
@@ -11,7 +11,16 @@ router.post('/signup', async (req, res, next) => {
   try {
 
     const newUser = await User.create(req.body)
+
+    let date = new Date()
+    let year = date.getFullYear()
+
+    const calendar = await Calendar.create({year: year, current: true})
+
+    await calendar.addNewUser(newUser)
+
     res.json(newUser)
+
 
   } catch (error) {
     next(error)
@@ -24,7 +33,8 @@ try {
   const user = await User.findOne({
     where: {
       email: req.body.email
-    }
+    },
+    include: [{model: Calendar}]
   })
 
   if (!user) {
