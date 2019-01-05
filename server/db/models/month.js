@@ -6,9 +6,13 @@ const Month = db.define('month', {
     type: Sequelize.STRING,
     allowNull: false,
   },
-  number: {
+  numberInYear: {
     type: Sequelize.INTEGER,
     allowNull: false
+  },
+  numberOfDays: {
+    type: Sequelize.INTEGER,
+    allowNull: false,
   },
   current: {
     type: Sequelize.BOOLEAN,
