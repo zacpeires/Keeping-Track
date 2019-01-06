@@ -8,17 +8,9 @@
     "start": "node server",
     "start-dev": "webpack -w & nodemon server.js"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/zacpeires/Boilerplate.git"
-  },
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/zacpeires/Boilerplate/issues"
-  },
-  "homepage": "https://github.com/zacpeires/Boilerplate#readme",
   "dependencies": {
     "axios": "^0.18.0",
     "body-parser": "^1.18.3",
@@ -29,7 +21,6 @@
     "history": "^4.7.2",
     "leap-year": "^2.0.1",
     "lodash": "^4.17.10",
-    "moment": "^2.23.0",
     "morgan": "^1.9.0",
     "nodemon": "^1.18.4",
     "passport": "^0.4.0",

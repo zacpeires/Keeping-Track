@@ -10,11 +10,13 @@ import { logout } from '../store'
   render() {
 
     return (
-      <div>
+      <nav className="nav">
+        <div>
         { this.props.isLoggedIn ? <div>
         </div> : <div></div>
         }
-      </div>
+        </div>
+      </nav>
     )
   }
 }

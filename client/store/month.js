@@ -18,3 +18,5 @@ const getMonths = months => ({
   type: 'GET_MONTHS',
   months
 })
+
+//months can eager load in the days
