@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import { Route } from 'react-router-dom'
 import {withRouter, Switch } from 'react-router-dom'
+import { connect } from 'react-redux'
 import { me } from './store'
 
 class Routes extends Component {
