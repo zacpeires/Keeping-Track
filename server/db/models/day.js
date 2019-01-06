@@ -6,13 +6,18 @@ const Day = db.define('day', {
     type: Sequelize.STRING,
     allowNull: false
   },
+  dayOfTheWeek: {
+    type: Sequelize.INTEGER,
+    allowNull: false
+  },
   date: {
-    type: Sequelize.DATE,
+    type: Sequelize.STRING,
     allowNull: false
   },
   current: {
     type: Sequelize.BOOLEAN,
-    defaultValue: false
+    defaultValue: false,
+    allowNull: true
   }
 })
 

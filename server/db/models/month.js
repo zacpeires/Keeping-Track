@@ -17,6 +17,9 @@ const Month = db.define('month', {
   current: {
     type: Sequelize.BOOLEAN,
     defaultValue: false
+  },
+  hasPassed: {
+    type: Sequelize.BOOLEAN
   }
 })
 

@@ -1,7 +1,8 @@
 const router = require('express').Router();
 const leapYear = require('leap-year');
-const { User, Calendar, Month } = require('../db/models');
-const createMonthsOfTheYear = require('./dataAndFunctions/monthsData');
+const { User, Calendar, Month, Day } = require('../db/models');
+const { createMonthsOfTheYear, createDaysOfTheWeek } = require('./dataAndFunctions');
+const moment = require('moment')
 module.exports = router;
 
 router.get('/me', (req, res, next) => {
@@ -11,7 +12,6 @@ router.get('/me', (req, res, next) => {
 router.post('/signup', async (req, res, next) => {
   try {
     const newUser = await User.create(req.body);
-
     let date = new Date();
     let year = date.getFullYear();
 
@@ -23,19 +23,47 @@ router.post('/signup', async (req, res, next) => {
 
     monthsOfTheYear.forEach(async (month) => {
       let isCurrent = false;
+      let hasPassed;
+      let monthName = month.name
+      const currentMonth = new Date().getMonth + 1;
 
-      if (month.numberInYear === new Date().getMonth + 1) {
+      if (month.numberInYear === currentMonth) {
         isCurrent = true;
       }
 
+      if (month.numberInYear < currentMonth) {
+        hasPassed = false;
+      } else {
+        hasPassed = true;
+      }
+
       let newMonth = await Month.create({
-        name: month.name,
+        name: monthName,
         numberInYear: month.numberInYear,
         numberOfDays: month.numberOfDays,
-            current: isCurrent
+        current: isCurrent,
+        hasPassed: hasPassed
       });
 
-      calendar.addNewMonth(newMonth);
+      for (let i = 0; i < month.numberOfDays; i++) {
+        let dayOfTheWeek = new Date(`${month.name}, ${i}`).getDay()
+        const day = createDaysOfTheWeek(dayOfTheWeek)
+        const date = `${i}/${month.numberInYear}/${year}`
+        let current = false
+
+        if (moment(date).isSame(Date.now(), 'day')) {
+          current = true
+        }
+
+        day.date = date
+        day.current = current
+
+        const newDay = await Day.create(day)
+
+       await newMonth.addNewDay(newDay)
+      }
+
+     await calendar.addNewMonth(newMonth);
     });
 
     res.json(newUser);
