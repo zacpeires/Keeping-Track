@@ -6,7 +6,6 @@ import { withRouter } from "react-router";
 const App = () => {
   return (
     <div id="app-container">
-      <Navbar />
       <Routes />
     </div>
   )
