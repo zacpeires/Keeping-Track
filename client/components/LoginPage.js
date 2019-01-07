@@ -24,6 +24,10 @@ class LoginPage extends Component {
 
   handleSubmit(event) {
     event.preventDefault();
+    this.props.login({
+      email: this.state.email,
+      password: this.state.password
+    })
 
   }
 
