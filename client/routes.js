@@ -15,14 +15,15 @@ class Routes extends Component {
   }
 
   render() {
-    console.log(this.props.isLoggedIn);
 
     return (
       <div className="routes-container">
         {this.props.isLoggedIn ? (
           <div>
             <Navbar />
-            <Switch />
+            <Switch>
+
+            </ Switch>
           </div>
         ) : (
           <LoginPage />

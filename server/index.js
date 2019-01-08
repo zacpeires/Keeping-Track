@@ -46,7 +46,7 @@ app.use((err, req, res, next) => {
 
 const port = process.env.PORT || 3000;
 
-db.sync({force: true})
+db.sync()
   .then(function(){
     app.listen(port, function () {
       console.log(`Your server, listening on port ${port}`);

@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { login } from '../store';
-import { LoginForm } from '../components'
+import { LoginForm, SignupForm } from '../components'
 
 class LoginPage extends Component {
   constructor() {
@@ -50,7 +50,7 @@ class LoginPage extends Component {
             <br />
             track your goals
           </p>
-
+        <SignupForm />
         </div>
         </div>
         </section>

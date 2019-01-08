@@ -72,11 +72,73 @@
   margin-right: 25px;
 }
 
+.new-account {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  padding-right: 25px;
+}
+
 .new-account__text {
   font-weight: bold;
   font-size: 25px;
   font-family: arial;
-  padding-top: 100px;
-  padding-left: 50px;
+  padding-top: 80px;
+}
 
+.signup-form {
+  width: 100%;
+}
+
+.signup-form__form {
+  display: flex;
+  flex-direction: column;
+  padding-top: 50px;
+  align-items: center;
+}
+
+.signup-form__form button {
+  margin-top: 20px;
+  padding: 12px;
+  width: 50%;
+  border-radius: 10px;
+  font-weight: bold;
+  font-size: 14px;
+  background-color: #794eb5;
+  color: white;
+}
+
+.signup-form__form button:hover {
+  background-color: #503277
+}
+
+.signup-form__input--names {
+  display: flex;
+  width: 100%;
+}
+
+.signup-form__input {
+  margin: 15px 0px 15px 0px;
+  border: transparent;
+  border-bottom: 1px solid#794eb5;
+  background-color:  #eff2f580;
+  font-size: 16px
+}
+
+.signup-form__input--email, .signup-form__input--password {
+  width: 95%;
+  padding: 14px;
+  font-size: 16px
+}
+
+.signup-form__input--first-name {
+  width: 50%!important;
+  padding: 14px;
+  margin-right: 16px
+}
+
+.signup-form__input--second-name {
+  width: 50%!important;
+  margin-left: 10px;
+  padding: 16px;
 }

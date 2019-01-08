@@ -1,10 +1,14 @@
 const Sequelize = require('sequelize')
-const crypt = require('crypto')
+const crypto = require('crypto')
 const _ = require('lodash')
 const db = require('../db')
 
 const User = db.define('user', {
-  name: {
+  firstName: {
+    type: Sequelize.STRING,
+    allowNull: false,
+  },
+  secondName: {
     type: Sequelize.STRING,
     allowNull: false,
   },

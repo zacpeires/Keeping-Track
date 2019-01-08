@@ -11,13 +11,15 @@ router.get('/me', (req, res, next) => {
 
 router.post('/signup', async (req, res, next) => {
   try {
+    console.log('hello')
+
     const newUser = await User.create(req.body);
     let date = new Date();
     let year = date.getFullYear();
 
     const calendar = await Calendar.create({ year: year, current: true });
 
-    await calendar.addNewUser(newUser);
+    await newUser.addCalendar(calendar);
 
     let monthsOfTheYear = createMonthsOfTheYear(leapYear);
 
@@ -60,10 +62,10 @@ router.post('/signup', async (req, res, next) => {
 
         const newDay = await Day.create(day)
 
-       await newMonth.addNewDay(newDay)
+       await newMonth.addDay(newDay)
       }
 
-     await calendar.addNewMonth(newMonth);
+     await calendar.addMonth(newMonth);
     });
 
     res.json(newUser);
