@@ -41,7 +41,7 @@ class SignupForm extends Component {
   render() {
     return (
       <section className="signup-form">
-        <form className="signup-form__form" onSubmit={this.handleSubmit}>
+        <form className="signup-form__form" onSubmit={this.handleSubmit} autoComplete="off">
         <div className="signup-form__input--names">
           <input
             className="signup-form__input signup-form__input--first-name"
@@ -60,7 +60,6 @@ class SignupForm extends Component {
             placeholder="Surname"
           />
           </div>
-
           <input
             className="signup-form__input  signup-form__input--email"
             name="email"

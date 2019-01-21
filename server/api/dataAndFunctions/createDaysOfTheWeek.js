@@ -33,9 +33,9 @@ const createDaysOfTheWeek = (number) => {
   ]
 
     if (number > 0) {
-      correctDay = daysOfTheWeek[number]
+      correctDay = daysOfTheWeek[number].name
       } else {
-        correctDay = daysOfTheWeek[0]
+        correctDay = daysOfTheWeek[0].name
       }
 
       return correctDay

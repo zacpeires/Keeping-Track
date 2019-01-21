@@ -1,16 +1,16 @@
 const Sequelize = require('sequelize')
-const db = require('../db')
+const db = require ('../db')
 
-const Day = db.define('day', {
-  name: {
+const SingleDate = db.define('date', {
+  date: {
+    type: Sequelize.STRING,
+    allowNull: false
+  },
+  month: {
     type: Sequelize.STRING,
     allowNull: false
   },
   dayOfTheWeek: {
-    type: Sequelize.INTEGER,
-    allowNull: false
-  },
-  date: {
     type: Sequelize.STRING,
     allowNull: false
   },
@@ -18,7 +18,13 @@ const Day = db.define('day', {
     type: Sequelize.BOOLEAN,
     defaultValue: false,
     allowNull: true
+  },
+  hasPassed: {
+      type: Sequelize.BOOLEAN,
+      defaultValue: false,
+      allowNull: true
   }
 })
 
-module.exports = Day
+module.exports = SingleDate
+

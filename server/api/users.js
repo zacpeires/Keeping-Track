@@ -1,6 +1,6 @@
 const router = require('express').Router();
 const leapYear = require('leap-year');
-const { User, Calendar, Month, Day } = require('../db/models');
+const { User, SingleDate } = require('../db/models');
 const { createMonthsOfTheYear, createDaysOfTheWeek } = require('./dataAndFunctions');
 const moment = require('moment')
 module.exports = router;
@@ -11,61 +11,38 @@ router.get('/me', (req, res, next) => {
 
 router.post('/signup', async (req, res, next) => {
   try {
-    console.log('hello')
-
     const newUser = await User.create(req.body);
     let date = new Date();
-    let year = date.getFullYear();
-
-    const calendar = await Calendar.create({ year: year, current: true });
-
-    await newUser.addCalendar(calendar);
+    let year = date.getFullYear();;
 
     let monthsOfTheYear = createMonthsOfTheYear(leapYear);
 
     monthsOfTheYear.forEach(async (month) => {
-      let isCurrent = false;
-      let hasPassed;
       let monthName = month.name
-      const currentMonth = new Date().getMonth + 1;
 
-      if (month.numberInYear === currentMonth) {
-        isCurrent = true;
-      }
-
-      if (month.numberInYear < currentMonth) {
-        hasPassed = false;
-      } else {
-        hasPassed = true;
-      }
-
-      let newMonth = await Month.create({
-        name: monthName,
-        numberInYear: month.numberInYear,
-        numberOfDays: month.numberOfDays,
-        current: isCurrent,
-        hasPassed: hasPassed
-      });
-
-      for (let i = 0; i < month.numberOfDays; i++) {
+      for (let i = 1; i <= month.numberOfDays; i++) {
         let dayOfTheWeek = new Date(`${month.name}, ${i}`).getDay()
         const day = createDaysOfTheWeek(dayOfTheWeek)
         const date = `${i}/${month.numberInYear}/${year}`
         let current = false
+        let hasPassed;
+
+  // fix hasPassed
+  // add dates to user
+  // moment isn't working - isn't working out what correct date is. Switch to date.now
+
 
         if (moment(date).isSame(Date.now(), 'day')) {
           current = true
         }
 
-        day.date = date
-        day.current = current
-
-        const newDay = await Day.create(day)
-
-       await newMonth.addDay(newDay)
+        const newDate = await SingleDate.create({
+          date: date,
+          month: month.name,
+          dayOfTheWeek: day,
+          current: current
+        })
       }
-
-     await calendar.addMonth(newMonth);
     });
 
     res.json(newUser);
@@ -80,8 +57,10 @@ router.put('/login', async (req, res, next) => {
       where: {
         email: req.body.email
       },
-      include: [{ model: Calendar }]
+      include: [{ model: Dates }]
     });
+
+    // sort out eager loading
 
     if (!user) {
       res.status(401).send('User not found');
