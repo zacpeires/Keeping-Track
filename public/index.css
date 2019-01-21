@@ -9,9 +9,51 @@
 }
 
 .header__navbar {
-  height: 95px;
-  background-color: #346cb0;
-  display: flex
+  height: 150px;
+  display: flex;
+  flex-direction: column;
+
+}
+
+.header__inner-navbar {
+  height: 70px;
+  background-color: #794eb5;
+  width: 100%;
+  display: flex;
+  align-items: flex-end;
+  color: white;
+}
+
+.header__inner-navbar ul {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding-left: 110px;
+  margin-bottom: 8px;
+}
+
+.header__inner-navbar li {
+  margin-right: 30px;
+}
+
+.header__outer-navbar {
+  background-color: #0e0e0ede;
+  color: white;
+  display: flex;
+  flex-direction: row;
+  padding-left: 110px;
+  align-items: center;
+}
+
+.header__outer-navbar ul {
+  display: flex;
+  flex-direction: row;
+  margin-left: 60px;
+}
+
+.header__outer-navbar li {
+  margin: 10px;
+  color: #979ea5;
 }
 
 .login-page {
