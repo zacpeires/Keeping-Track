@@ -18,16 +18,16 @@ class Routes extends Component {
 
     return (
       <div className="routes-container">
-        {/* {this.props.isLoggedIn ? ( */}
+        {this.props.isLoggedIn ? (
           <div>
             <Navbar />
             <Switch>
 
             </ Switch>
           </div>
-        {/* ) : (
+         ) : (
           <LoginPage />
-        )} */}
+        )} 
       </div>
     );
   }

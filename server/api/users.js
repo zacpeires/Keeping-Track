@@ -42,6 +42,8 @@ router.post('/signup', async (req, res, next) => {
           dayOfTheWeek: day,
           current: current
         })
+
+        await newDate.setUser(newUser)
       }
     });
 
@@ -57,7 +59,7 @@ router.put('/login', async (req, res, next) => {
       where: {
         email: req.body.email
       },
-      include: [{ model: Dates }]
+      include: [{ model: SingleDate }]
     });
 
     // sort out eager loading
@@ -67,7 +69,7 @@ router.put('/login', async (req, res, next) => {
     } else if (!user.correctPassword(req.body.password)) {
       res.status(401).send('Incorrect password');
     } else {
-      req.login(user, errr => {
+      req.login(user, err => {
         if (err) next(err);
         else res.json(user);
       });

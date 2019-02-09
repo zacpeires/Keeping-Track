@@ -1,0 +1,61 @@
+.signup-form {
+  width: 100%;
+
+  &__form {
+    display: flex;
+    flex-direction: column;
+    padding-top: 50px;
+    align-items: center;
+
+    & button {
+      margin-top: 20px;
+      padding: 12px;
+      width: 50%;
+      border-radius: 10px;
+      font-weight: bold;
+      font-size: 14px;
+      background-color: #b72d60;
+      color: white;
+
+      &:hover {
+        background-color: #503277;
+      }
+    }
+
+    &__input {
+      margin: 15px 0px 15px 0px;
+      border: transparent;
+      border-bottom: 1px solid#b72d60;
+      background-color: #eff2f580;
+      font-size: 16px;
+       
+      &--names {
+        display: flex;
+        width: 100%;
+      }
+
+      &--email, &--password {
+        width: 95%;
+        padding: 14px;
+        font-size: 16px;
+      }
+
+      &--first-name {
+        width: 50% !important;
+        padding: 14px;
+        margin-right: 16px;
+      }
+
+      &--second-name {
+        width: 50% !important;
+        margin-left: 10px;
+        padding: 16px;
+      }
+    }
+  }
+}
+
+
+
+
+

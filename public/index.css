@@ -9,52 +9,78 @@
 }
 
 .header__navbar {
-  height: 150px;
+  height: 120px;
   display: flex;
   flex-direction: column;
 
 }
 
-.header__inner-navbar {
-  height: 70px;
-  background-color: #794eb5;
+.header__inner--navbar {
+  height: 60px;
+  background-color: #b72d60;
   width: 100%;
   display: flex;
-  align-items: flex-end;
   color: white;
-}
-
-.header__inner-navbar ul {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
+  align-items: flex-end;
   padding-left: 110px;
-  margin-bottom: 8px;
 }
 
-.header__inner-navbar li {
+
+.header__inner--navbar p {
   margin-right: 30px;
+  padding: 10px;
+  cursor: pointer;
+  position: relative;
+  transition: height 1s;
+  transform-style: preserve-3d;
 }
 
-.header__outer-navbar {
+.header__inner--navbar p::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  background-color: white;
+  transform: translateZ(-1px);
+  transition: all 0.4s;
+  height: 0px;
+
+}
+
+
+.header__inner--navbar p:hover::after {
+  height: 40px;
+  width: 100%;
+}
+
+.header__inner--navbar p:hover {
+  color: black;
+}
+
+.header__outer--navbar {
   background-color: #0e0e0ede;
   color: white;
   display: flex;
   flex-direction: row;
   padding-left: 110px;
   align-items: center;
+  width: 100%;
 }
 
-.header__outer-navbar ul {
+.header__outer--navbar h1 {
+  margin-right: 25px;
+}
+
+.header__outer--navbar p {
   display: flex;
   flex-direction: row;
   margin-left: 60px;
-}
-
-.header__outer-navbar li {
+  list-style-type: none;
   margin: 10px;
   color: #979ea5;
+  cursor: pointer;
 }
+
 
 .login-page {
   height: 100%;
@@ -81,9 +107,9 @@
   border-radius: 30px;
   padding: 13px;
   background-color: white;
-  border: 1px solid #794eb5;
+  border: 1px solid #b72d60;;
   margin-left: 5px;
-  color: #794eb5;
+  color: #b72d60;;
   font-weight: bold;
   font-size: 14px;
 }
@@ -101,7 +127,7 @@
 .login-page__section--left {
   width: 52%;
   height: 100%;
-  background-color: #794eb5;
+  background-color: #b72d60;;
 }
 
 .login-page__section--right {
@@ -146,7 +172,7 @@
   border-radius: 10px;
   font-weight: bold;
   font-size: 14px;
-  background-color: #794eb5;
+  background-color: #b72d60;;
   color: white;
 }
 
@@ -162,7 +188,7 @@
 .signup-form__input {
   margin: 15px 0px 15px 0px;
   border: transparent;
-  border-bottom: 1px solid#794eb5;
+  border-bottom: 1px solid#b72d60;
   background-color:  #eff2f580;
   font-size: 16px
 }

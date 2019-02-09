@@ -25,14 +25,15 @@ export const createUser = userDetails => {
 
 export const me = () => {
   return async dispatch => {
-    const { data } = axios.get('/api/users/me')
+    const { data } = await axios.get('/api/users/me')
     dispatch(getUser(data || defaultUser))
   }
 }
 
 export const login = userData => {
   return async dispatch => {
-    const { data } = axios.put('/api/users/login', userData)
+    const { data } = await  axios.put('/api/users/login', userData)
+    console.log(userData)
     dispatch(getUser(data))
     history.push('/')
   }
@@ -40,7 +41,7 @@ export const login = userData => {
 
 export const logout = () => {
   return async dispatch => {
-    const { data } = axios.delete('/api/users/logout')
+    const { data } =  await axios.delete('/api/users/logout')
     dispatch(removeUser())
   }
 }

@@ -14,31 +14,28 @@ class Navbar extends Component {
     return (
       <header>
         <nav className="header__navbar">
-        <div className="header__outer-navbar">
+        <div className="header__outer--navbar">
         <h1>Keeping Track</h1>
-        <ul>
-          <li>
+          <p>
             Home
-          </li>
-          <li>
+          </p>
+          <p>
             About
-          </li>
-          <li>
+          </p>
+          <p>
             Goals
-          </li>
-        </ul>
+          </p>
         </div>
-        <div className="header__inner-navbar">
-        <ul>
-          {/* change Lis for ps, in order to animate height and color on hover - may have to use an after that comes up from the bottom.
-          UL becomes div in css and LI beomes p */}
-          <li>
-            Progress and Achievements
-          </li>
-          <li>
+        <div className="header__inner--navbar">
+          <p>
+            Calendar
+          </p>
+          <p>
             Tasks
-          </li>
-        </ul>
+          </p>
+          <p>
+            Summary
+          </p>
         </div>
           {/* {this.props.isLoggedIn ? <div /> :
           <div />

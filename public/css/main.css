@@ -1,0 +1,140 @@
+*,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+#app,
+#app-container,
+html,
+body,
+.routes-container {
+  height: 100%;
+}
+
+.login-page {
+  height: 100%;
+  display: flex;
+  width: 100%;
+  position: absolute;
+}
+.login-page__section--left {
+  width: 52%;
+  height: 100%;
+  background-color: #b72d60;
+}
+.login-page__section--right {
+  width: 48%;
+  padding-top: 50px;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  margin-left: 25px;
+  margin-right: 25px;
+}
+
+.login-form {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  justify-content: flex-end;
+  padding-right: 200px;
+}
+.login-form__input {
+  margin-right: 10px;
+  height: 24px;
+  width: 180px;
+  padding: 6px 10px 6px 10px;
+  font-size: 14px;
+}
+.login-form_button {
+  display: inline-block;
+  border-radius: 30px;
+  padding: 13px;
+  background-color: white;
+  border: 1px solid #b72d60;
+  margin-left: 5px;
+  color: #b72d60;
+  font-weight: bold;
+  font-size: 14px;
+}
+.login-form_button:hover {
+  background-color: #794eb547;
+}
+
+.new-account {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  padding-right: 25px;
+}
+.new-account__text {
+  font-weight: bold;
+  font-size: 25px;
+  font-family: arial;
+  padding-top: 80px;
+}
+
+.header__navbar {
+  height: 120px;
+  display: flex;
+  flex-direction: column;
+}
+
+.header___inner--navbar {
+  height: 60px;
+  background-color: #b72d60;
+  width: 100%;
+  display: flex;
+  color: white;
+  align-items: flex-end;
+  padding-left: 110px;
+}
+.header___inner--navbar p {
+  margin-right: 30px;
+  padding: 10px;
+  cursor: pointer;
+  position: relative;
+  transition: height 1s;
+  transform-style: preserve-3d;
+}
+.header___inner--navbar p::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  background-color: white;
+  transform: translateZ(-1px);
+  transition: all 0.4s;
+  height: 0px;
+}
+.header___inner--navbar p:hover::after {
+  height: 40px;
+  width: 100%;
+}
+.header___inner--navbar p:hover {
+  color: black;
+}
+.header___inner--navbar__outer--navbar {
+  background-color: #0e0e0ede;
+  color: white;
+  display: flex;
+  flex-direction: row;
+  padding-left: 110px;
+  align-items: center;
+  width: 100%;
+}
+.header___inner--navbar__outer--navbar h1 {
+  margin-right: 25px;
+}
+.header___inner--navbar__outer--navbar p {
+  display: flex;
+  flex-direction: row;
+  margin-left: 60px;
+  list-style-type: none;
+  margin: 10px;
+  color: #979ea5;
+  cursor: pointer;
+}
