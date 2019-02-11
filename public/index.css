@@ -8,6 +8,10 @@
   height: 100%;
 }
 
+a {
+  text-decoration: none;
+}
+
 .header__navbar {
   height: 120px;
   display: flex;
@@ -33,6 +37,7 @@
   position: relative;
   transition: height 1s;
   transform-style: preserve-3d;
+  color: white;
 }
 
 .header__inner--navbar p::after {
@@ -49,6 +54,11 @@
 
 
 .header__inner--navbar p:hover::after {
+  height: 40px;
+  width: 100%;
+}
+
+.header__inner--navbar p:active::after{
   height: 40px;
   width: 100%;
 }

@@ -59,10 +59,8 @@ router.put('/login', async (req, res, next) => {
       where: {
         email: req.body.email
       },
-      include: [{ model: SingleDate }]
+      // include: [{ model: SingleDate }]
     });
-
-    // sort out eager loading
 
     if (!user) {
       res.status(401).send('User not found');

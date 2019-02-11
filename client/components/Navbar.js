@@ -27,9 +27,11 @@ class Navbar extends Component {
           </p>
         </div>
         <div className="header__inner--navbar">
+        <Link to="/"> 
           <p>
             Calendar
           </p>
+          </Link>
           <p>
             Tasks
           </p>
