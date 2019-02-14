@@ -19,9 +19,9 @@ const getDates = dates => ({
   dates
 });
 
-const gotSingleDate = userId => {
+export const gotAllDates = userId => {
   return async dispatch => {
-    const { data } = await axios.get(`/api/calendar/${userId}`);
+    const { data } = await axios.get(`/api/dates/calendar/${userId}`);
     dispatch(getDates(data));
   };
 };

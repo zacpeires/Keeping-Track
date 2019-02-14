@@ -6,7 +6,7 @@ const SingleDate = db.define('date', {
     type: Sequelize.STRING,
     allowNull: false
   },
-  month: {
+  monthName: {
     type: Sequelize.STRING,
     allowNull: false
   },

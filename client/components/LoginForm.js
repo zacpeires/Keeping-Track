@@ -24,7 +24,7 @@ const LoginForm = (props) => {
         <input
           className="login-form__input"
           name="password"
-          type="text"
+          type="password"
           value={props.password}
           onChange={props.handleChange}
           placeholder="Password"

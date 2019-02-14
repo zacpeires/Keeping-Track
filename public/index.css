@@ -58,10 +58,6 @@ a {
   width: 100%;
 }
 
-.header__inner--navbar p:active::after{
-  height: 40px;
-  width: 100%;
-}
 
 .header__inner--navbar p:hover {
   color: black;

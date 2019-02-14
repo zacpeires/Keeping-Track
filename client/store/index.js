@@ -4,7 +4,7 @@ import { createLogger } from 'redux-logger'
 import user from './user'
 import dates from './dates'
 
-const reducer = combineReducers({user})
+const reducer = combineReducers({user, dates})
 
 const store = createStore(
   reducer,

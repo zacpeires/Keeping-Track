@@ -1,6 +1,6 @@
 const router = require('express').Router();
 const leapYear = require('leap-year');
-const { User, SingleDate } = require('../db/models');
+const { User, SingleDate, Month } = require('../db/models');
 const { createMonthsOfTheYear, createDaysOfTheWeek } = require('./dataAndFunctions');
 const moment = require('moment')
 module.exports = router;
@@ -20,6 +20,9 @@ router.post('/signup', async (req, res, next) => {
     monthsOfTheYear.forEach(async (month) => {
       let monthName = month.name
 
+
+      const newMonth = await Month.create({name: monthName})
+
       for (let i = 1; i <= month.numberOfDays; i++) {
         let dayOfTheWeek = new Date(`${month.name}, ${i}`).getDay()
         const day = createDaysOfTheWeek(dayOfTheWeek)
@@ -38,12 +41,13 @@ router.post('/signup', async (req, res, next) => {
 
         const newDate = await SingleDate.create({
           date: date,
-          month: month.name,
+          monthName: month.name,
           dayOfTheWeek: day,
           current: current
         })
 
         await newDate.setUser(newUser)
+        await newDate.setMonth(newMonth)
       }
     });
 
