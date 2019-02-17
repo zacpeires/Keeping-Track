@@ -6,10 +6,13 @@ User.hasMany(SingleDate)
 SingleDate.belongsTo(User)
 Month.hasMany(SingleDate)
 SingleDate.belongsTo(Month)
+User.hasMany(Month)
+Month.belongsTo(User)
 
 module.exports = {
   User,
-  SingleDate
+  SingleDate,
+  Month
 }
 
 

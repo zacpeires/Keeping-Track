@@ -1,21 +1,21 @@
-import axios from "axios";
-import history from "../history";
+import axios from 'axios';
+import history from '../history';
 
 const defaultDates = {
   singleData: {},
   allDates: []
 };
 
-const GET_SINGLE_DATE = "GET_SINGLE_DATE";
-const GET_DATES = "GET_DATES";
+const GET_SINGLE_DATE = 'GET_SINGLE_DATE';
+const GET_DATES = 'GET_DATES';
 
 const getSingleDate = date => ({
-  type: "GET_SINGLE_DATE",
+  type: GET_SINGLE_DATE,
   date
 });
 
 const getDates = dates => ({
-  type: "GET_DATES",
+  type: 'GET_DATES',
   dates
 });
 
