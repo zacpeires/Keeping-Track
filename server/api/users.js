@@ -21,7 +21,8 @@ router.post('/signup', async (req, res, next) => {
       let monthName = month.name
 
 
-      const newMonth = await Month.create({name: monthName})
+      const newMonth = await Month.create({name: monthName,
+      numberInYear: month.numberInYear})
 
       for (let i = 1; i <= month.numberOfDays; i++) {
         let dayOfTheWeek = new Date(`${month.name}, ${i}`).getDay()

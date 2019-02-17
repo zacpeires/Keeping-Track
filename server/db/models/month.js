@@ -5,6 +5,10 @@ const Month = db.define('month', {
     name: {
         type: Sequelize.STRING,
         allowNull: false
+    },
+    numberInYear: {
+        type: Sequelize.INTEGER,
+        allowNull: false
     }
 })
 
