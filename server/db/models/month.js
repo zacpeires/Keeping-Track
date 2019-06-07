@@ -9,7 +9,11 @@ const Month = db.define('month', {
     numberInYear: {
         type: Sequelize.INTEGER,
         allowNull: false
-    }
+    },
+    // hasPassed: {
+    //     type: Sequelize.BOOLEAN,
+    //     allowNull: true
+    // }
 })
 
 module.exports = Month

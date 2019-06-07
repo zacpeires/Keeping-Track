@@ -13,7 +13,6 @@ class Home extends Component {
 
     render() {
         const { user } = this.props
-
         return (
             <div>
                 <WholeCalendar user={user} />

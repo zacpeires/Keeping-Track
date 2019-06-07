@@ -2,14 +2,13 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import { gotAllDates, gotAllMonths } from "../store";
 import { SingleMonth } from "../components";
-import { STATUS_CODES } from "http";
 
 class WholeCalendar extends Component {
   constructor() {
     super();
 
     this.state = {
-      allMonths: [], 
+      allMonths: [],
       orderedMonths: [],
       January: [],
       February: [],
@@ -27,14 +26,13 @@ class WholeCalendar extends Component {
 
     this.sortDatesByMonth = this.sortDatesByMonth.bind(this);
     this.sortDatesInAscendingOrder = this.sortDatesInAscendingOrder.bind(this);
-    this.orderMonths = this.orderMonths.bind(this)
+    this.orderMonths = this.orderMonths.bind(this);
   }
 
   async componentDidMount() {
     const { user } = this.props;
     await this.props.gotAllMonths(user.id);
-    const orderedMonths = this.orderMonths(this.props.months)
-
+    const orderedMonths = this.orderMonths(this.props.months);
     this.setState({
       allMonths: orderedMonths
     });
@@ -45,46 +43,51 @@ class WholeCalendar extends Component {
   sortDatesByMonth() {
     const allMonths = this.state.allMonths;
     const state = this.state;
-    const sortedMonths = []
+    const sortedMonths = [];
     allMonths.forEach(month => {
       for (let key in state) {
         if (key === month.name) {
-       const sortedDates = this.sortDatesInAscendingOrder(month.dates)
+          const sortedDates = this.sortDatesInAscendingOrder(month.dates);
           this.setState({
-            [key]: sortedDates,
+            [key]: sortedDates
           });
 
-          sortedMonths.push(sortedDates)
+          sortedMonths.push(sortedDates);
         }
       }
     });
     this.setState({
       orderedMonths: sortedMonths
-    })
+    });
   }
 
   sortDatesInAscendingOrder(dates) {
     return dates.sort((a, b) => {
-      return +a.date.split('/')[0] - +b.date.split('/')[0]
-    })
+      return +a.date.split("/")[0] - +b.date.split("/")[0];
+    });
   }
 
   orderMonths(months) {
     return months.sort((a, b) => {
-      return a.numberInYear - b.numberInYear
-    })
+      return a.numberInYear - b.numberInYear;
+    });
   }
 
   render() {
-    if (!this.state.allMonths) {
-      return <div />;
-    }
-console.log(this.state)
 
+    if (!this.state.orderedMonths.length) {
+      return <div />
+    }
+
+    console.log(this.state)
 
     return (
       <section className="whole-calendar">
-        <SingleMonth />
+        {this.state.orderedMonths.map(month => {
+          return (
+          <SingleMonth month={month} key={month.monthName}/>
+          )
+        })}
       </section>
     );
   }

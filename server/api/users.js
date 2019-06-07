@@ -50,7 +50,6 @@ router.post('/signup', async (req, res, next) => {
         await newDate.setUser(newUser)
         await newDate.setMonth(newMonth)
       }
-
         await newMonth.setUser(newUser)
     });
 

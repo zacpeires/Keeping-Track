@@ -1,11 +1,9 @@
-*, *::after, *::before {
+*,
+*::after,
+*::before {
   margin: 0;
   padding: 0;
-  font-family: Arial, Helvetica, sans-serif
-}
-
-#app, #app-container, html, body, .routes-container {
-  height: 100%;
+  font-family: Arial, Helvetica, sans-serif;
 }
 
 a {
@@ -13,10 +11,8 @@ a {
 }
 
 .header__navbar {
-  height: 120px;
   display: flex;
   flex-direction: column;
-
 }
 
 .header__inner--navbar {
@@ -28,7 +24,6 @@ a {
   align-items: flex-end;
   padding-left: 110px;
 }
-
 
 .header__inner--navbar p {
   margin-right: 30px;
@@ -49,15 +44,12 @@ a {
   transform: translateZ(-1px);
   transition: all 0.4s;
   height: 0px;
-
 }
-
 
 .header__inner--navbar p:hover::after {
   height: 40px;
   width: 100%;
 }
-
 
 .header__inner--navbar p:hover {
   color: black;
@@ -87,7 +79,6 @@ a {
   cursor: pointer;
 }
 
-
 .login-page {
   height: 100%;
 }
@@ -113,9 +104,9 @@ a {
   border-radius: 30px;
   padding: 13px;
   background-color: white;
-  border: 1px solid #b72d60;;
+  border: 1px solid #b72d60;
   margin-left: 5px;
-  color: #b72d60;;
+  color: #b72d60;
   font-weight: bold;
   font-size: 14px;
 }
@@ -133,7 +124,7 @@ a {
 .login-page__section--left {
   width: 52%;
   height: 100%;
-  background-color: #b72d60;;
+  background-color: #b72d60;
 }
 
 .login-page__section--right {
@@ -178,12 +169,12 @@ a {
   border-radius: 10px;
   font-weight: bold;
   font-size: 14px;
-  background-color: #b72d60;;
+  background-color: #b72d60;
   color: white;
 }
 
 .signup-form__form button:hover {
-  background-color: #503277
+  background-color: #503277;
 }
 
 .signup-form__input--names {
@@ -195,24 +186,47 @@ a {
   margin: 15px 0px 15px 0px;
   border: transparent;
   border-bottom: 1px solid#b72d60;
-  background-color:  #eff2f580;
-  font-size: 16px
+  background-color: #eff2f580;
+  font-size: 16px;
 }
 
-.signup-form__input--email, .signup-form__input--password {
+.signup-form__input--email,
+.signup-form__input--password {
   width: 95%;
   padding: 14px;
-  font-size: 16px
+  font-size: 16px;
 }
 
 .signup-form__input--first-name {
-  width: 50%!important;
+  width: 50% !important;
   padding: 14px;
-  margin-right: 16px
+  margin-right: 16px;
 }
 
 .signup-form__input--second-name {
-  width: 50%!important;
+  width: 50% !important;
   margin-left: 10px;
   padding: 16px;
+}
+
+.whole-calendar {
+  display: flex;
+  flex-wrap: wrap;
+  padding: 100px;
+  justify-content: center;
+}
+
+.single-month {
+  margin: 20px;
+}
+
+.single-month__days {
+  display: flex;
+  flex-wrap: wrap;
+  width: 300px;
+  padding-bottom: 30px;
+}
+
+.single-month__single-day {
+  padding: 13px;
 }
