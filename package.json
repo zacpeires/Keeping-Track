@@ -22,7 +22,7 @@
     "express-session": "^1.15.6",
     "history": "^4.7.2",
     "leap-year": "^2.0.1",
-    "lodash": "^4.17.10",
+    "lodash": "^4.17.19",
     "morgan": "^1.9.0",
     "passport": "^0.4.0",
     "path": "^0.12.7",
